@@ -1,7 +1,5 @@
 # I got made fun of for the snake case.
-$filePath = "regex_boner.txt"
-
-$corruptedMemory = Get-Content -Path $filePath -Raw
+$corruptedMemory = Get-Content -Path "regex_boner.txt" -Raw
 
 $regex = 'mul\((\d+),(\d+)\)'
 $sum = 0
