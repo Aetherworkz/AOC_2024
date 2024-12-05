@@ -22,7 +22,7 @@ function is_safe($levels) {
         }
     }
 
-    return $increasing -or $decreasing # Must be either strictly increasing or decreasing
+    return $increasing -or $decreasing
 }
 
 # Are we safe after removing one level? Let's find out.
