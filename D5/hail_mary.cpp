@@ -11,13 +11,14 @@ using namespace std;
 
 unordered_map<int, unordered_set<int>> nums;
 
-// returns tru if rhs is in the set of numbers related to da lhs. Helper func for sort later.
+// returns tru if rhs is in the set of numbers related to the lhs. Nums based on rules.
 bool lessThanHelper(int lhs, int rhs)
 {
+    // true if rhs is in the set of numbers that should come after lhs
     return nums[lhs].count(rhs);
 }
 
-int process(ifstream &in, bool checkOrder)
+int freak_it(ifstream &in, bool checkOrder)
 {
     nums.clear();
     string line;
@@ -34,7 +35,7 @@ int process(ifstream &in, bool checkOrder)
     {
         vector<int> order;
 
-        // taking full advantage of the fact that we only have 2 digits.
+        // taking full advantage of the fact that we only have 2 digits (conver comma separated sequence into an integer :P )
         for (size_t i = 0; i < line.size(); i += 3)
         {
             order.push_back(stoi(line.substr(i, 2)));
@@ -61,10 +62,10 @@ int main()
         return 1;
     }
 
-    cout << "Haha part 1: " << process(file, false) << endl;
+    cout << "Haha part 1: " << freak_it(file, false) << endl;
 
     file.clear();
     file.seekg(0, ios::beg);
 
-    cout << "Part 2? Yeah, part 2: " << process(file, true) << endl;
+    cout << "Part 2? Yeah, part 2: " << freak_it(file, true) << endl;
 }
